@@ -1,6 +1,6 @@
 ticker,shares_outstanding,shares_as_of,shares_source,close_price_2026-11-13,price_source,market_cap_usd_mn
-LUV,489602380,2026-10-21,"10-Q Q3 2026 cover page",,,
-DAL,657912380,2026-09-30,"10-Q Q3 2026 cover page",,,
-UAL,324894375,2026-10-15,"10-Q Q3 2026 cover page",,,
-AAL,662618434,2026-10-16,"10-Q Q3 2026 cover page",,,
-ALK,112776404,2026-10-31,"10-Q Q3 2026 cover page",,,
+LUV,489602380,2026-10-21,10-Q Q3 2026 cover page,44.94,Macrotrends / StockInvest.us / CNN,22002.7
+DAL,657912380,2026-09-30,10-Q Q3 2026 cover page,86.25,Yahoo Finance historical / Macrotrends,56744.9
+UAL,324894375,2026-10-15,10-Q Q3 2026 cover page,109.31,Yahoo Finance / Morningstar / CNBC,35514.2
+AAL,662618434,2026-10-16,10-Q Q3 2026 cover page,13.17,Yahoo Finance historical / Macrotrends,8726.7
+ALK,112776404,2026-10-31,10-Q Q3 2026 cover page,38.48,Macrotrends / CNBC / TipRanks,4339.6
