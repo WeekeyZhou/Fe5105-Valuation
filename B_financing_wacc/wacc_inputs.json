@@ -1,0 +1,154 @@
+{
+  "valuation_date": "2026-11-13",
+  "balance_sheet_date": "2026-09-30",
+  "accessed_date": "2026-11-17",
+  "status": "Base-case estimate using broad rating-group debt costs",
+  "common": {
+    "risk_free_rate": 0.0515,
+    "equity_risk_premium": 0.0441,
+    "unlevered_beta": 0.7,
+    "tax_rate": 0.24
+  },
+  "sources": {
+    "RF": {
+      "date": "2026-11-13",
+      "location": "Daily Treasury Par Yield Curve Rates; 10 Yr column",
+      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202611&type=daily_treasury_yield_curve",
+      "note": "5.15% nominal Treasury yield used as an unadjusted risk-free proxy."
+    },
+    "ERP": {
+      "date": "2026-11-01",
+      "location": "Implied ERP; trailing 12 months with adjusted payout",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/home.htm",
+      "note": "4.41% monthly estimate carried forward to valuation date. No sovereign default-spread adjustment."
+    },
+    "BETA": {
+      "date": "2026-01",
+      "location": "US Air Transport; 23 firms; Unlevered beta column",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/Betas.html",
+      "note": "0.70, not the cash-corrected 0.76. Sector cash exposure retained as an approximation."
+    },
+    "SPREAD": {
+      "date": "Observation 2026-11-13; FRED update 2026-11-16",
+      "location": "ICE BofA rating-group option-adjusted spreads via FRED",
+      "url": "https://fred.stlouisfed.org/series/BAMLC0A4CBBB",
+      "note": "BBB 1.11%; BB 1.86%; B 3.44%. Each company's exact series is recorded separately. Index OAS is measured against a Treasury spot curve; adding it to the 10-year Treasury yield is a practical maturity approximation, not a company bond YTM. Observation date is not the FRED publication date; this is a retrospective valuation-date estimate."
+    },
+    "TAX": {
+      "date": "B base case selected 2026-11-17",
+      "location": "Group modelling assumption; supporting tax screenshots in sources/tax",
+      "url": "",
+      "note": "B-selected normalised marginal tax assumption: 21% federal plus 3 percentage points net state/local effect. It is not a common reported tax rate or a confirmed team agreement."
+    },
+    "FINANCIALS": {
+      "date": "Balance sheet 2026-09-30; market equity 2026-11-13",
+      "location": "data/processed/financials.csv and DATA_DICTIONARY.md",
+      "url": "https://github.com/WeekeyZhou/Fe5105-Valuation",
+      "note": "Member A's dataset. Book adjusted debt proxies market debt; equity is market capitalisation. Individual market prices have not been independently reverified."
+    },
+    "SPREAD_BB": {
+      "date": "2026-11-13",
+      "location": "BAMLH0A1HYBB; observation in percent",
+      "url": "https://fred.stlouisfed.org/series/BAMLH0A1HYBB",
+      "note": "1.86%, stored as 0.0186; BB group proxy for UAL and ALK."
+    },
+    "SPREAD_B": {
+      "date": "2026-11-13",
+      "location": "BAMLH0A2HYB; observation in percent",
+      "url": "https://fred.stlouisfed.org/series/BAMLH0A2HYB",
+      "note": "3.44%, stored as 0.0344; B group proxy for AAL."
+    }
+  },
+  "companies": [
+    {
+      "ticker": "LUV",
+      "agency": "Moody's",
+      "rating": "Baa2",
+      "rating_type": "Expected note rating",
+      "source_date": "2026-10-26",
+      "spread": 0.0111,
+      "location": "Pricing term sheet; Expected Ratings",
+      "url": "https://investors.southwest.com/sec-filings/all-sec-filings/content/0001193125-26-432199/0001193125-26-432199.pdf",
+      "limitation": "Issue-level expected rating used as a financing proxy; not confirmation of all issuer ratings on valuation date.",
+      "spread_group": "BBB",
+      "spread_series": "BAMLC0A4CBBB",
+      "spread_date": "2026-11-13",
+      "spread_source_url": "https://fred.stlouisfed.org/series/BAMLC0A4CBBB",
+      "financing": "Unsecured notes, term borrowing, aircraft leases and sale-and-leaseback financing; revolving credit provides contingent liquidity.",
+      "filing_path": "data/raw/html/LUV_10Q_Q3_2026.htm",
+      "filing_locator": "Debt / long-term debt note; liquidity and capital resources; balance sheet"
+    },
+    {
+      "ticker": "DAL",
+      "agency": "Moody's",
+      "rating": "Baa2",
+      "rating_type": "Note rating",
+      "source_date": "2026-11-04",
+      "spread": 0.0111,
+      "location": "Annex B; Pricing Term Sheet; Ratings",
+      "url": "https://www.sec.gov/Archives/edgar/data/27904/000119312526451940/d164939dex11.htm",
+      "limitation": "Issue-level rating used as a financing proxy.",
+      "spread_group": "BBB",
+      "spread_series": "BAMLC0A4CBBB",
+      "spread_date": "2026-11-13",
+      "spread_source_url": "https://fred.stlouisfed.org/series/BAMLC0A4CBBB",
+      "financing": "Unsecured notes, term loans, aircraft equipment financing and EETCs, SkyMiles-backed debt, leases and revolving facilities.",
+      "filing_path": "data/raw/html/DAL_10Q_Q3_2026.htm",
+      "filing_locator": "Debt / long-term debt note; liquidity and capital resources; balance sheet"
+    },
+    {
+      "ticker": "UAL",
+      "agency": "Moody's",
+      "rating": "Ba1",
+      "rating_type": "Parent corporate rating",
+      "source_date": "2026-10-21",
+      "spread": 0.0186,
+      "location": "Q3 2026 Form 10-Q; Credit Ratings; UAL row",
+      "url": "https://ir.united.com/static-files/fbd48c5b-43fa-4d6a-9d5d-d7c1658d3162",
+      "limitation": "Rating reported as of filing date, not independently verified through valuation date.",
+      "spread_group": "BB",
+      "spread_series": "BAMLH0A1HYBB",
+      "spread_date": "2026-11-13",
+      "spread_source_url": "https://fred.stlouisfed.org/series/BAMLH0A1HYBB",
+      "financing": "Senior notes, term loans, aircraft equipment financing and EETCs, route/slot/gate-backed facilities, leases and revolving credit.",
+      "filing_path": "data/raw/html/UAL_10Q_Q3_2026.htm",
+      "filing_locator": "Debt / long-term debt note; liquidity and capital resources; balance sheet"
+    },
+    {
+      "ticker": "AAL",
+      "agency": "S&P",
+      "rating": "B+",
+      "rating_type": "Issuer credit rating",
+      "source_date": "2026-02-04",
+      "spread": 0.0344,
+      "location": "American Airlines Group Inc. 'B+' Rating Affirmed",
+      "url": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/sourceId/101669010",
+      "limitation": "Dated issuer-rating evidence; no claim of continuous verification through the valuation date. High leverage makes the zero-debt-beta assumption especially restrictive.",
+      "spread_group": "B",
+      "spread_series": "BAMLH0A2HYB",
+      "spread_date": "2026-11-13",
+      "spread_source_url": "https://fred.stlouisfed.org/series/BAMLH0A2HYB",
+      "financing": "EETCs, equipment loans, AAdvantage-backed notes and term loans, government support programme notes, leases and revolving facilities.",
+      "filing_path": "data/raw/html/AAL_10Q_Q3_2026.htm",
+      "filing_locator": "Debt / long-term debt note; liquidity and capital resources; balance sheet"
+    },
+    {
+      "ticker": "ALK",
+      "agency": "Fitch",
+      "rating": "BB+",
+      "rating_type": "Long-term issuer default rating",
+      "source_date": "2026-04-27",
+      "spread": 0.0186,
+      "location": "Dodd-Frank disclosure; page 1; Alaska Air Group Inc.",
+      "url": "https://assets.fitchratings.com/downloadFile?reportType=doddFrank&sfReport=false&slug=corporate-finance%2Ffitch-revises-alaska-air-outlook-to-negative-affirms-idr-at-bb-27-04-2026",
+      "limitation": "Broad BB proxy based on dated Fitch evidence; not a claim that all agencies assign the same rating or that subsequent changes have been excluded.",
+      "spread_group": "BB",
+      "spread_series": "BAMLH0A1HYBB",
+      "spread_date": "2026-11-13",
+      "spread_source_url": "https://fred.stlouisfed.org/series/BAMLH0A1HYBB",
+      "financing": "Aircraft equipment financing and EETCs, loyalty-backed debt, unsecured notes, government support programme notes, leases and revolving facilities.",
+      "filing_path": "data/raw/html/ALK_10Q_Q3_2026.htm",
+      "filing_locator": "Debt / long-term debt note; liquidity and capital resources; balance sheet"
+    }
+  ]
+}

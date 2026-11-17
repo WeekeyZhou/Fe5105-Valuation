@@ -1,0 +1,9 @@
+{
+  "valuation_date": "2026-11-13",
+  "accessed_date": "2026-11-17",
+  "sha256": {
+    "data/processed/financials.csv": "be55445141ac9e639fec140d7ffb8a8578f5e4ceca3b5de8529c9a0fda1c66b8",
+    "B_financing_wacc/wacc_inputs.json": "d857d1199ad6d46fae38b02e1ea3a070a051b3467724bbd11f7257bdb85cc0b1",
+    "B_financing_wacc/pipeline/build_wacc.py": "e295ba1d75de21dfe27a18a3c8f2d86e85e3cf42adf93d6baef2db9fbbbba5dd"
+  }
+}

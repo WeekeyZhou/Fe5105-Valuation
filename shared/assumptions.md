@@ -1,7 +1,7 @@
 # Shared assumptions — FE5105 Group Project
 
 **Every number in the report must use these values.** If you need to change one, tell the group first and then update this file in a PR.
-Owner: **B** (fills in the TBD items). Conventions agreed by A on 2026-11-15.
+Owner: **B** (maintains cost-of-capital assumptions). Conventions agreed by A on 2026-11-15.
 
 ---
 
@@ -45,17 +45,60 @@ Source: `data/raw/market_data_2026-11-13.csv`.
 | **Enterprise value** | Market cap (2026-11-13) + adjusted net debt (2026-09-30) |
 | **Debt weight in WACC** | Book value of adjusted debt (market value of debt ≈ book; state this assumption) |
 
-## 5. Cost of capital (B to fill in)
+## 5. Cost of capital
+
+Maintained by B. Base case communicated to the group on 2026-11-17.
+This records B's selected assumptions, not unanimous group approval.
 
 | Item | Value | Source / method |
 |---|---|---|
-| Risk-free rate | **TBD** | e.g. 10-year US Treasury yield on 2026-11-13 |
-| Market risk premium | **TBD** | State the source (e.g. Damodaran implied ERP) |
-| Equity beta | **TBD per firm** | Regression (weekly returns, 2–5 yrs vs S&P 500) and/or industry beta unlevered and relevered |
-| Pre-tax cost of debt | **TBD per firm** | Credit rating spread or bond YTM |
-| Cost of operating leases | Same as pre-tax cost of debt | |
-| **Marginal tax rate** | **TBD (≈ 21% federal + state)** | Use the same rate for every firm, set from the 10-K tax notes; A also uses it for ROIC |
-| WACC (first draft) | **TBD** | **Publish a first draft early: C needs it** |
+| Risk-free proxy | **5.15%** | [US Treasury, 10 Yr, 2026-11-13](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202611&type=daily_treasury_yield_curve) |
+| Equity risk premium | **4.41%** | [Damodaran, 2026-11-01](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/home.htm); trailing 12 months with adjusted payout |
+| Industry unlevered beta | **0.70** | [Damodaran US Air Transport, January 2026](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/Betas.html); not cash-corrected |
+| Equity beta | See company table | Industry beta relevered using market D/E |
+| Pre-tax cost of debt | See company table | Treasury proxy plus broad rating-group OAS |
+| Cost of operating leases | Same as pre-tax cost of debt | Same tax treatment under the group convention |
+| **Normalised marginal tax rate** | **24% for all five firms** | B-selected assumption: 21% federal + 3 percentage points net state/local effect; A uses the same rate for ROIC |
+
+The tax rate is a modelling assumption, not a common reported effective tax rate.
+Tax-note evidence is retained in `B_financing_wacc/sources/tax/`.
+
+| Firm | D / E | Equity beta | Ke | Kd before tax | WACC |
+|---|---:|---:|---:|---:|---:|
+| LUV | 0.31 | 0.8661 | 8.97% | 6.26% | 7.97% |
+| DAL | 0.33 | 0.8766 | 9.02% | 6.26% | 7.95% |
+| UAL | 0.97 | 1.2137 | 10.50% | 7.01% | 7.96% |
+| AAL | 4.16 | 2.9114 | 17.99% | 8.59% | 8.75% |
+| ALK | 1.73 | 1.6218 | 12.30% | 7.01% | 7.88% |
+
+**Calculation and debt treatment**
+
+- βL = βU × [1 + (1 − T) × D/E]; Ke = Rf + βL × ERP.
+- Kd = Rf + credit spread; WACC = E/(D+E) × Ke + D/(D+E) × Kd × (1−T).
+- D is adjusted book debt at 2026-09-30, including finance and operating leases once. Book debt approximates market debt; cash is not netted from WACC weights.
+- E is market capitalisation at 2026-11-13. AAL's negative book equity does not invalidate this market D/E; the accounting-ratio restriction in Section 6 applies to book equity.
+- Benefit liabilities and traffic/loyalty obligations remain outside D. Usable interest tax shields and negligible debt beta are modelling assumptions.
+
+**Credit-spread sources and interpretation**
+
+LUV and DAL use the BBB group, UAL and ALK the BB group, and AAL the B group.
+ICE BofA spreads via FRED for 2026-11-13: [BBB 1.11%](https://fred.stlouisfed.org/series/BAMLC0A4CBBB),
+[BB 1.86%](https://fred.stlouisfed.org/series/BAMLH0A1HYBB) and [B 3.44%](https://fred.stlouisfed.org/series/BAMLH0A2HYB).
+These observations were published on November 16; this is a retrospective estimate.
+Index OAS plus a 10-year Treasury yield is a maturity approximation, not a company bond yield.
+Rating evidence differs in date and type and is not continuously verified through the valuation date.
+
+**Handoff to C**
+
+Use LUV base WACC **7.97%**, with approximately **6.97%–8.97%** sensitivity alongside
+terminal growth. This is a modelling range, not a confidence interval. For lease-consistent
+FCFF, apply the after-tax lease-interest addback and leased-asset reinvestment treatment;
+subtract lease liabilities once in the enterprise-to-equity bridge.
+
+Full-precision results: `B_financing_wacc/output/wacc_results.csv`.
+Sources and rating evidence: `B_financing_wacc/sources/source_register.csv`.
+Final Part B report: `B_financing_wacc/output/FE5105_Part_B_2p5pages_Corrected.docx`.
+Reproduce with `python3 B_financing_wacc/pipeline/build_wacc.py` from the repository root.
 
 ## 6. Accounting adjustments (all members)
 

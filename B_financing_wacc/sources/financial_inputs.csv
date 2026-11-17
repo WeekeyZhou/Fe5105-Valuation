@@ -1,0 +1,36 @@
+﻿ticker,period,period_type,period_start,period_end,item,value,unit,source,note
+LUV,BS_2026-09-30,BS,,2026-09-30,adjusted_debt,6871.0,USD mn,derived: total_debt + oplease_liab_total,group definition: debt + finance leases + operating lease liabilities (ASC 842)
+LUV,VAL_2026-11-13,MKT,,2026-11-13,market_cap,22002.731,USD mn,derived: share_price x shares_outstanding,
+LUV,BS_2026-09-30,BS,,2026-09-30,total_debt,5887.0,USD mn,derived: debt_current + debt_noncurrent,includes finance leases (and UAL other financial liabilities) as presented on balance sheet
+LUV,BS_2026-09-30,BS,,2026-09-30,oplease_liab_total,984.0,USD mn,derived: current + noncurrent,
+LUV,BS_2026-09-30,BS,,2026-09-30,cash_and_sti,3624.0,USD mn,derived: cash + st_investments,
+LUV,BS_2026-09-30,BS,,2026-09-30,pension_liab,323.0,USD mn,10-Q Q3 2026 (iXBRL) PensionAndOtherPostretirementDefinedBenefitPlansLiabilitiesNoncurrent,
+LUV,BS_2026-09-30,BS,,2026-09-30,air_traffic_liability_total,8277.0,USD mn,10-Q Q3 2026 (iXBRL),"ContractWithCustomerLiability (total); operating liability, NOT treated as debt"
+DAL,BS_2026-09-30,BS,,2026-09-30,adjusted_debt,18835.0,USD mn,derived: total_debt + oplease_liab_total,group definition: debt + finance leases + operating lease liabilities (ASC 842)
+DAL,VAL_2026-11-13,MKT,,2026-11-13,market_cap,56744.943,USD mn,derived: share_price x shares_outstanding,
+DAL,BS_2026-09-30,BS,,2026-09-30,total_debt,12851.0,USD mn,derived: debt_current + debt_noncurrent,includes finance leases (and UAL other financial liabilities) as presented on balance sheet
+DAL,BS_2026-09-30,BS,,2026-09-30,oplease_liab_total,5984.0,USD mn,derived: current + noncurrent,
+DAL,BS_2026-09-30,BS,,2026-09-30,cash_and_sti,3787.0,USD mn,derived: cash + st_investments,
+DAL,BS_2026-09-30,BS,,2026-09-30,pension_liab,3031.0,USD mn,10-Q Q3 2026 (iXBRL) PensionAndOtherPostretirementDefinedBenefitPlansLiabilitiesNoncurrent,
+DAL,BS_2026-09-30,BS,,2026-09-30,air_traffic_liability_total,19192.0,USD mn,10-Q Q3 2026 (iXBRL),"sum by member: PassengerAirTrafficMember, ProductAndServiceOtherLoyaltyProgramMember; operating liability, NOT treated as debt"
+UAL,BS_2026-09-30,BS,,2026-09-30,adjusted_debt,34294.0,USD mn,derived: total_debt + oplease_liab_total,group definition: debt + finance leases + operating lease liabilities (ASC 842)
+UAL,VAL_2026-11-13,MKT,,2026-11-13,market_cap,35514.204,USD mn,derived: share_price x shares_outstanding,
+UAL,BS_2026-09-30,BS,,2026-09-30,total_debt,26398.0,USD mn,derived: debt_current + debt_noncurrent,includes finance leases (and UAL other financial liabilities) as presented on balance sheet
+UAL,BS_2026-09-30,BS,,2026-09-30,oplease_liab_total,7896.0,USD mn,derived: current + noncurrent,
+UAL,BS_2026-09-30,BS,,2026-09-30,cash_and_sti,14653.0,USD mn,derived: cash + st_investments,
+UAL,BS_2026-09-30,BS,,2026-09-30,pension_liab,825.0,USD mn,10-Q Q3 2026 (iXBRL) PensionAndOtherPostretirementAndPostemploymentBenefitPlansLiabilitiesCurrentAndNoncurrent,
+UAL,BS_2026-09-30,BS,,2026-09-30,air_traffic_liability_total,18637.0,USD mn,10-Q Q3 2026 (iXBRL),"advance ticket sales + frequent flyer current + noncurrent; operating liability, NOT treated as debt"
+AAL,BS_2026-09-30,BS,,2026-09-30,adjusted_debt,36274.0,USD mn,derived: total_debt + oplease_liab_total,group definition: debt + finance leases + operating lease liabilities (ASC 842)
+AAL,VAL_2026-11-13,MKT,,2026-11-13,market_cap,8726.685,USD mn,derived: share_price x shares_outstanding,
+AAL,BS_2026-09-30,BS,,2026-09-30,total_debt,29635.0,USD mn,derived: debt_current + debt_noncurrent,includes finance leases (and UAL other financial liabilities) as presented on balance sheet
+AAL,BS_2026-09-30,BS,,2026-09-30,oplease_liab_total,6639.0,USD mn,derived: current + noncurrent,
+AAL,BS_2026-09-30,BS,,2026-09-30,cash_and_sti,8287.0,USD mn,derived: cash + st_investments,
+AAL,BS_2026-09-30,BS,,2026-09-30,pension_liab,1099.0,USD mn,10-Q Q3 2026 (iXBRL) PensionAndOtherPostretirementDefinedBenefitPlansLiabilitiesNoncurrent,
+AAL,BS_2026-09-30,BS,,2026-09-30,air_traffic_liability_total,20928.0,USD mn,10-Q Q3 2026 (iXBRL),"ContractWithCustomerLiability (total); operating liability, NOT treated as debt"
+ALK,BS_2026-09-30,BS,,2026-09-30,adjusted_debt,7519.0,USD mn,derived: total_debt + oplease_liab_total,group definition: debt + finance leases + operating lease liabilities (ASC 842)
+ALK,VAL_2026-11-13,MKT,,2026-11-13,market_cap,4339.636,USD mn,derived: share_price x shares_outstanding,
+ALK,BS_2026-09-30,BS,,2026-09-30,total_debt,6159.0,USD mn,derived: debt_current + debt_noncurrent,includes finance leases (and UAL other financial liabilities) as presented on balance sheet
+ALK,BS_2026-09-30,BS,,2026-09-30,oplease_liab_total,1360.0,USD mn,derived: current + noncurrent,
+ALK,BS_2026-09-30,BS,,2026-09-30,cash_and_sti,2231.0,USD mn,derived: cash + st_investments,
+ALK,BS_2026-09-30,BS,,2026-09-30,pension_liab,324.0,USD mn,10-Q Q3 2026 (iXBRL) PensionAndOtherPostretirementDefinedBenefitPlansLiabilitiesNoncurrent,
+ALK,BS_2026-09-30,BS,,2026-09-30,air_traffic_liability_total,5673.0,USD mn,10-Q Q3 2026 (iXBRL),"sum by member: AirTrafficLiabilityMember, LoyaltyPlanRevenueMember; operating liability, NOT treated as debt"
