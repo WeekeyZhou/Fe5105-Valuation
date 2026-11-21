@@ -1,0 +1,19 @@
+{
+  "forecast": {
+    "asm_growth": [0.025, 0.025, 0.0225, 0.02, 0.02],
+    "trasm_growth": [0.025, 0.0225, 0.02, 0.018, 0.015],
+    "fuel_efficiency_growth": [0.008, 0.008, 0.008, 0.008, 0.008],
+    "fuel_price": [3.10, 2.95, 2.85, 2.80, 2.80],
+    "nonfuel_casm_growth": [0.025, 0.025, 0.025, 0.025, 0.025],
+    "da_to_sales": [0.050, 0.050, 0.050, 0.051, 0.052],
+    "capex_to_sales": [0.100, 0.090, 0.080, 0.071, 0.065]
+  },
+  "terminal_growth": 0.0225,
+  "terminal_roic": 0.10,
+  "incremental_nwc_to_sales": 0,
+  "lease_discount_rate": 0.042,
+  "fixed_operating_lease_cost_usd_mn": 363,
+  "wacc_grid_step": 0.005,
+  "growth_grid_step": 0.005,
+  "fuel_shock_usd_per_gallon": 0.50
+}
