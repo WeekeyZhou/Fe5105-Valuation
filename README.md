@@ -1,80 +1,65 @@
 # FE5105 Group Project — Southwest Airlines (LUV)
 
-> 📌 **First, read everything in [`Read it before you do!`](./Read%20it%20before%20you%20do!/)**: the official project guidelines plus the Chinese task-split PDF (`分工说明.pdf`).
+> **Status: complete.** The merged report is [`report/final_report.docx`](./report/final_report.docx) (11 pages; PDF preview: [`report/final_report_preview.pdf`](./report/final_report_preview.pdf)).
+> The official guidelines and the Chinese task-split PDF are in [`Read it before you do!`](./Read%20it%20before%20you%20do!/).
 
 - **Target firm:** Southwest Airlines (LUV)
 - **Competitors (N = 4):** Delta (DAL), United (UAL), American (AAL), Alaska (ALK)
-- **Page limit:** fewer than 4 + 2×4 = **12 pages**, including everything (no separate cover page). Shorter is better at equal quality.
-- **Format:** 1.5 line spacing, 12pt font. Submit on Canvas before the final exam (date TBC).
+- **Data dates:** balance sheet at 30 September 2026; trailing twelve months (TTM) = FY2025 + 9M2026 − 9M2025; market data and valuation date 13 November 2026
+- **Page limit:** fewer than 4 + 2×4 = 12 pages, everything included
 
 ---
 
-## Task split at a glance
+## Group members and sections
 
-| Member | Module | Firms covered | Report pages | Key deliverables |
-|---|---|---|---|---|
-| **A** | Financial ratios + shared data + intro/conclusion + final editing | All 5 | ~2.5 | `data/processed/financials.csv`, ratio comparison table |
-| **B** | Financing sources + hidden leverage + WACC + capital-structure advice | All 5 | ~2.5 | WACC table for all 5 firms, `shared/assumptions.md` |
-| **C** | Valuation: DCF + multiples cross-check + sensitivity analysis | LUV only | ~3 | DCF model, valuation range chart, sensitivity tables |
-| **D** | Liquidity + adverse scenario + risk management & hedge proposal | LUV only | ~3 | Stress-test table, hedge proposal analysis |
+| Member | Name | Report section | Main outputs |
+|---|---|---|---|
+| **A** | ZHOU Mo | 1 Introduction, 2 Financial Performance, 6 Conclusion; shared data; final editing | `data/processed/financials.csv`, `A_ratios/output/ratios_table.xlsx`, Figure 1 |
+| **B** | ZHANG Jiaxin | 3 Financing and Cost of Capital | `B_financing_wacc/output/wacc_results.csv`, `shared/assumptions.md` |
+| **C** | RUAN Yalin | 4 Valuation | `C_valuation/LUV_Valuation_Model.xlsx`, Figure 2 |
+| **D** | JING Wanyi | 5 Financial Planning and Risk Management | `D_risk_management/output/*.csv`, Figures 3–4 |
 
-> **Why this is balanced:** A and B work across all five firms, so their load is breadth. C and D work on LUV only, so their load is depth. A also owns the shared data and the final edit, to offset the lighter analysis.
+## Key results
 
----
-
-## Detailed tasks
-
-### 👤 A — Financial ratios (Part I, first half) + data + final edit
-- [ ] Download the latest 10-K and most recent 10-Q for all 5 firms from SEC EDGAR → `data/raw/`
-- [ ] Build one clean shared dataset → `data/processed/financials.csv` (everyone uses it)
-- [ ] Choose a small set of ratios and explain the *economically important* differences, not just the numbers:
-  - Profitability: operating margin, ROA, ROE
-  - Efficiency: asset turnover; airline metrics CASM-ex, RASM, load factor
-  - Leverage: Debt/EBITDAR, Debt/Equity
-  - Liquidity: current ratio, cash/revenue
-- [ ] Write the introduction (why these 5 firms, selection criteria) and the conclusion
-- [ ] Final edit: consistent formatting, page count under the limit
-
-### 👤 B — Financing & cost of capital (Part I, second half)
-- [ ] Identify each firm's major financing sources (bonds, term loans, aircraft financing / EETCs, etc.)
-- [ ] Identify material hidden leverage: operating leases, pension obligations, loyalty-program deferred revenue (air traffic liability)
-- [ ] Estimate cost of debt from rating spreads or bond yields-to-maturity
-- [ ] Estimate cost of equity with CAPM (regression beta, or industry beta unlevered and relevered)
-- [ ] Compute the after-tax WACC for all 5 firms
-- [ ] Should LUV change its capital structure? Cover the tax benefits, financial-distress costs, and financing needs from growth
-- [ ] **Do this first:** create and maintain `shared/assumptions.md` (risk-free rate, market risk premium, tax rate, valuation date)
-
-### 👤 C — Valuation (Part II)
-- [ ] Forecast LUV's free cash flow to the firm (FCFF) for about 5 years, with each assumption justified
-- [ ] Run the DCF with B's WACC → intrinsic enterprise value and value per share
-- [ ] Cross-check with a competitor valuation multiple (EV/EBITDAR or EV/EBITDA)
-- [ ] Compare the valuation range with the current market value
-- [ ] Sensitivity analysis: WACC × long-run growth, plus one key operating assumption (suggested: **jet fuel price** or CASM-ex)
-- [ ] Discuss how confident we are that the stock is mispriced, given market efficiency and forecast uncertainty
-
-### 👤 D — Financial planning & risk management (Part III)
-- [ ] Assess near-term cash ability: cash conversion cycle, current and quick ratios, interest coverage, cash reserves, debt maturity schedule
-- [ ] Design one plausible adverse scenario (suggested: **jet fuel price shock**, e.g. the 2026 Strait of Hormuz episode) and test LUV under it
-- [ ] Identify the major risks (fuel, demand cycle, interest rates, Boeing deliveries, labor) and decide which to bear and which to hedge
-- [ ] Evaluate LUV's existing policy: it ended its fuel-hedging program in 2025
-- [ ] Propose one specific hedge (e.g. crude or heating-oil call options, a collar) and explain how it protects cash flows and affects firm value
+| Item | Result |
+|---|---|
+| TTM operating margin | LUV 4.4%, the only firm in the group whose margin rose year on year |
+| WACC | LUV 7.97% (DAL 7.95%, UAL 7.96%, AAL 8.75%, ALK 7.88%) |
+| DCF value per share | $50.22 (range $39.80–$70.73) vs $44.94 close on 13 November 2026 |
+| Peer EV/EBITDAR median | $48.87 per share (range $37.11–$74.45) |
+| 30% fuel-price shock | $1,095.8 million funding shortfall with no refinancing |
+| 50% fuel collar | Improves stressed free cash flow by $705.6 million |
 
 ---
 
-## Dependencies & timeline
+## How to rebuild
 
-```
-Phase 1 ──► A: shared dataset      B: assumptions.md (rf, MRP, tax rate)
-              │                      │
-Phase 2 ──► A: ratio analysis      B: WACC ───────► C: DCF + sensitivity
-              │
-              └────────────────────────────────────► D: liquidity + stress test + hedge
-Phase 3 ──► Everyone writes their section → A merges → peer review → submit on Canvas
+Run everything from the project root, in this order. Python packages needed: `pandas`, `openpyxl`, `matplotlib`, `beautifulsoup4`, `python-docx`, `Pillow`.
+
+```bash
+# A: shared dataset, ratios and Figure 1
+python3 A_ratios/pipeline/build_financials.py   # reads data/raw/, writes data/processed/
+python3 A_ratios/pipeline/comparability.py
+python3 A_ratios/pipeline/compute_ratios.py
+python3 A_ratios/pipeline/make_figures.py
+
+# B: financing and WACC
+python3 B_financing_wacc/pipeline/build_wacc.py
+
+# C: valuation (also needs Node.js; see C_valuation/C_piepline/README.md)
+python3 C_valuation/C_piepline/rebuild.py
+
+# D: liquidity, stress test, hedging and Figures 3–4
+python3 D_risk_management/liquidity_analysis.py
+python3 D_risk_management/fuel_stress_test.py
+python3 D_risk_management/fuel_hedging.py
+python3 D_risk_management/generate_figures.py
+
+# Final report: merges the four sections into report/final_report.docx
+python3 report/build_final_report.py
 ```
 
-- **C depends on B's WACC.** B should publish a first-draft WACC early so C can build the model, then update it later.
-- **D depends on A's data.** Liquidity ratios read directly from `financials.csv`.
-- **Everyone uses the same parameters from `shared/assumptions.md`**, so the numbers in the report stay consistent.
+`report/build_final_report.py` only renumbers tables and figures, fixes typos and applies one house style (`$` with million/billion in text, US spelling, day-month-year dates). It does not change any member's analysis. Shared formatting for tables and figures comes from `shared/config.py`.
 
 ---
 
@@ -83,26 +68,25 @@ Phase 3 ──► Everyone writes their section → A merges → peer review →
 ```
 Group Project/
 ├── README.md
-├── Read it before you do!/
-│   ├── Group Project Guidelines.pdf   # official guidelines
-│   └── 分工说明.pdf                    # task split (Chinese)
+├── Read it before you do!/        # guidelines + task split (Chinese)
 ├── shared/
-│   └── assumptions.md                 # common assumptions (B maintains)
+│   ├── assumptions.md             # common parameters (tax rate, Rf, ERP, dates)
+│   └── config.py                  # shared figure and Word formatting
 ├── data/
-│   ├── raw/                           # original 10-K / 10-Q files
-│   └── processed/                     # financials.csv (A maintains)
-├── A_ratios/
-├── B_financing_wacc/
-├── C_valuation/
-├── D_risk_management/
+│   ├── raw/                       # 10-K, 10-Q, 8-K filings and market data
+│   └── processed/                 # financials.csv, DATA_DICTIONARY.md, validation_checks.csv
+├── A_ratios/                      # pipeline/ + output/ (ratios, comparability adjustments)
+├── B_financing_wacc/              # pipeline/, sources/, output/ (WACC, financing, Part B text)
+├── C_valuation/                   # C_piepline/, valuation model, Part C text
+├── D_risk_management/             # analysis scripts + output/
 └── report/
-    ├── sections/                      # one section per member
-    ├── figures/
-    └── final_report.docx              # merged by A
+    ├── sections/                  # A and D section files
+    ├── figures/                   # Figures 1, 3, 4
+    ├── build_final_report.py      # merge script
+    ├── final_report.docx          # final submission
+    └── final_report_preview.pdf
 ```
 
-## Collaboration rules
-1. Work on your own branch (`A-ratios`, `B-wacc`, `C-valuation`, `D-risk`) and merge into `main` through a Pull Request that at least one teammate has reviewed.
-2. Only edit your own folder. Tell the group before you change anything in `shared/` or `data/processed/`.
-3. Record the source and date of every data point. The results in the report must be up to date.
-4. All text, figures, and tables must be our own work. Any use of AI tools must follow NUS's AI guidelines.
+## Data sources and AI use
+- Company filings from SEC EDGAR (Form 10-K FY2021–FY2025, Form 10-Q Q3 2026, Form 8-K earnings releases); U.S. Treasury yields; Damodaran; ICE BofA spreads via FRED.
+- The group used Claude (Anthropic) and ChatGPT (OpenAI) for coding, data extraction, drafting and language editing, in line with NUS guidelines on AI use. All members checked the calculations and reviewed the final text.
