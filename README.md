@@ -14,7 +14,7 @@
 
 | Member | Name | Report section | Main outputs |
 |---|---|---|---|
-| **A** | ZHOU Mo | 1 Introduction, 2 Financial Performance, 6 Conclusion; shared data; final editing | `data/processed/financials.csv`, `A_ratios/output/ratios_table.xlsx`, Figure 1 |
+| **A** | ZHOU Mo | 1 Introduction, 2 Financial Performance, 6 Conclusion; shared data; 7 final editing and merging; 8 repository creating | `data/processed/financials.csv`, `A_ratios/output/ratios_table.xlsx`, Figure 1 |
 | **B** | ZHANG Jiaxin | 3 Financing and Cost of Capital | `B_financing_wacc/output/wacc_results.csv`, `shared/assumptions.md` |
 | **C** | RUAN Yalin | 4 Valuation | `C_valuation/LUV_Valuation_Model.xlsx`, Figure 2 |
 | **D** | JING Wanyi | 5 Financial Planning and Risk Management | `D_risk_management/output/*.csv`, Figures 3–4 |
